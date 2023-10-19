@@ -15,5 +15,5 @@ databases:
   - name: metabase-database
     databaseName: metabasedb
     ipAllowList: [] # only allow internal connections
-    plan: standard 
+    plan: starter 
     region: frankfurt
