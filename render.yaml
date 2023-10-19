@@ -1,16 +1,19 @@
 services:
   - type: web
-    name: metabase
+    name: metabase-server
     env: docker
-    repo: https://github.com/render-examples/metabase.git # optional
+    repo: https://github.com/vymaker/metabase.git # optional
+    region: frankfurt
     plan: standard # ensure that metabase has at least 2GB of RAM (defaults to starter)
     autoDeploy: false
     envVars:
       - key: MB_DB_CONNECTION_URI
         fromDatabase:
-          name: elephant
+          name: metabase-database
           property: connectionString
 databases:
-  - name: elephant
+  - name: metabase-database
     databaseName: metabasedb
     ipAllowList: [] # only allow internal connections
+    plan: standard 
+    region: frankfurt
